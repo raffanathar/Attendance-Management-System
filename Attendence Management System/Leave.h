@@ -18,17 +18,16 @@ protected:
 public:
     Leave();
     Leave(const string& empId, const string& type, const string& startDate, const string& endDate,
-        const string& address, const string& reason, const string& appDate , const string& status);
+        const string& address, const string& reason, const string& appDate , const string& status = "Pending");
 
     virtual int calculateLeaveDays() const = 0; // Pure virtual function to calculate leave days
 
-    string getEmpId() const;
-    string getType() const;
-    string getStartDate() const;
-    string getEndDate() const;
-    string getReason() const;
-    string getAddress() const;
-    string getAppDate() const;
+    string getstatus() const { return status; }
+    void setStatus(const string& status) { this->status = status; }
+
+    virtual string gettype() const = 0;
+    virtual void processLeave() = 0;
+
 };
 
 #endif

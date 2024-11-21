@@ -19,11 +19,11 @@ public:
     Attendance(const string& empId, const string& date, const string& checkIn, const string& checkOut);
 
     // Getters
-    string getEmployeeId() const;
-    string getDate() const;
-    string getCheckInTime() const;
-    string getCheckOutTime() const;
-    double getHoursWorked() const;
+    string getEmployeeId() ;
+    string getDate() ;
+    string getCheckInTime() ;
+    string getCheckOutTime();
+    int getHoursWorked();
 
     // Setters
     void setCheckInTime(const string& checkIn);
@@ -31,8 +31,8 @@ public:
 
     // Core Functions
     void calculateHoursWorked(); // Calculate hours worked from check-in and check-out
-    bool isValidTimeFormat(const string& time) const; // Validate "HH:MM" format
-    bool isValidAttendance() const; // Ensure checkIn < checkOut and times are valid
+    bool isValidTimeFormat(const string& time); // Validate "HH:MM" format
+    bool isValidAttendance(); // Ensure checkIn < checkOut and times are valid
 };
 
 #endif

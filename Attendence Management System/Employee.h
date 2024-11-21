@@ -12,6 +12,7 @@ private:
     int earnedLeaveBalance;
     int officialLeaveBalance;
     int unpaidLeaveBalance;
+    Attendance *attendance;
 
 public:
     Employee(string id, string name);

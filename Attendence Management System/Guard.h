@@ -3,9 +3,11 @@
 
 #include "Attendance.h"
 
-class Guard {
+class Guard
+{
 public:
-    void markAttendance(Attendance& attendance, const std::string& inTime, const std::string& outTime);
+    void markCheckIn(Attendance &attendance, const std::string &inTime);
+    void markCheckOut(Attendance &attendance, const std::string &outTime);
 };
 
 #endif

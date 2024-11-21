@@ -1,5 +1,6 @@
 #ifndef EMPLOYEE_HPP
 #define EMPLOYEE_HPP
+
 #include <string>
 using namespace std;
 
@@ -16,24 +17,19 @@ public:
     // Constructor
     Employee(string id, string name);
 
-    // Getter and Setter for Employee details
+    // Getters for Employee details
     string getId() const;
     string getName() const;
 
-    // Leave Balance related functions
+    // Getters for Leave Balances
     int getCasualLeaveBalance() const;
     int getEarnedLeaveBalance() const;
     int getOfficialLeaveBalance() const;
     int getUnpaidLeaveBalance() const;
 
     // Functions to modify leave balances
-    void deductCasualLeave(int days);
-    void deductEarnedLeave(int days);
-    void deductOfficialLeave(int days);
-    void deductUnpaidLeave(int days);
-
-    // Attendance related functions
-    void markAttendance(bool isPresent);
-    void viewAttendance();
+    bool deductLeave(const string& leaveType, int days); // Generalized for all leave types
+    void resetLeaveBalance(const string& leaveType, int newBalance); // Optional, for leave resets
 };
+
 #endif

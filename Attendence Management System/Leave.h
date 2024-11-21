@@ -19,7 +19,7 @@ public:
     Leave(const string& empId, const string& type, const string& startDate, const string& endDate,
         const string& address, const string& reason, const string& appDate , const string& status = "Pending");
 
-    virtual int calculateLeaveDays() const = 0; // Pure virtual function to calculate leave days
+    virtual int calculateLeaveDays() const = 0; 
 
     string getstatus() const { return status; }
     void setStatus(const string& status) { this->status = status; }

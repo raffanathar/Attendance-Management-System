@@ -1,18 +1,22 @@
-#ifndef FILEMANAGER_HPP
-#define FILEMANAGER_HPP
+#ifndef REPORTING_HPP
+#define REPORTING_HPP
 
-#include "Employee.h"
-#include "Attendance.h"
-#include "Leave.h"
 #include <vector>
-#include <string>
+#include "Employee.h"
+#include "Leave.h"
+#include "AttenanceManager.h"
 
-class FileManager {
+class Reporting {
 public:
-    static void loadEmployeesFromFile(const std::string& fileName, std::vector<Employee>& employees);
-    static void saveAttendanceToFile(const std::string& fileName, const std::vector<Attendance>& attendanceRecords);
-    static void saveLeaveToFile(const std::string& fileName, const std::vector<Leave*>& leaves);
-    static void loadLeaveFromFile(const std::string& fileName, std::vector<Leave*>& leaves);
+    // Generate attendance report
+    void generateAttendanceReport(const vector<Employee>& employees, double threshold) const;
+
+    // Generate leave report
+    void generateLeaveReport(const vector<Leave*>& leaveRecords) const;
+
+    // Generate detailed report for an employee
+    void generateEmployeeReport(const Employee& employee, const vector<Attendance>& attendanceRecords,
+                                const vector<Leave*>& leaveRecords) const;
 };
 
 #endif

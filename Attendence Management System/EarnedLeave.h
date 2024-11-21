@@ -3,14 +3,21 @@
 
 #include "Leave.h"
 
-class EarnedLeave : public Leave {
+class EarnedLeave : public Leave
+{
 public:
-    EarnedLeave() : Leave() {}
-    EarnedLeave(const std::string& empId, const std::string& startDate, const std::string& endDate,
-        const std::string& address, const std::string& reason, const std::string& appDate)
-        : Leave(empId, "Earned", startDate, endDate, address, reason, appDate) {}
+    EarnedLeave(const string &empId, const string &startDate, const string &endDate,
+                const string &address, const string &reason, const string &appDate, const string &status)
+        : Leave(empId, "Earned", startDate, endDate, address, reason, appDate, status) {}
 
     int calculateLeaveDays() const override;
+
+    string gettype() const override
+    {
+        return "Earned";
+    }
+
+    void processLeave() override;
 };
 
 #endif

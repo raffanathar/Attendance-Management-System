@@ -14,22 +14,18 @@ private:
     int unpaidLeaveBalance;
 
 public:
-    // Constructor
     Employee(string id, string name);
 
-    // Getters for Employee details
     string getId() const;
     string getName() const;
 
-    // Getters for Leave Balances
     int getCasualLeaveBalance() const;
     int getEarnedLeaveBalance() const;
     int getOfficialLeaveBalance() const;
     int getUnpaidLeaveBalance() const;
 
-    // Functions to modify leave balances
-    bool deductLeave(const string& leaveType, int days); // Generalized for all leave types
-    void resetLeaveBalance(const string& leaveType, int newBalance); // Optional, for leave resets
+    bool deductLeave(const string& leaveType, int days); 
+    void resetLeaveBalance(const string& leaveType, int newBalance); 
 };
 
 #endif

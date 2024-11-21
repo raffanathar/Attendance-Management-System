@@ -1,11 +1,12 @@
 #ifndef LEAVEMANAGER_HPP
 #define LEAVEMANAGER_HPP
 
-#include<iostream>
+#include <iostream>
+#include <vector>
 #include "Leave.h"
 #include "Supervisor.h"
 #include "Director.h"
-#include <vector>
+
 using namespace std;
 
 class LeaveManager {
@@ -16,10 +17,11 @@ public:
     void addLeave(Leave* leave);
     vector<Leave*> getLeaves() const;
     void approveLeave(const string& empId, const string& leaveType);
-    vector<Leave*> getPendingLeave() const;
-    vector<Leave*> getApprovedLeave() const;
-    vector<Leave*> getLeavesbyempid(const string& empid) const;
-    bool isexceedingthreasholdest(const string& empid, const string& leaveType) const;
+    vector<Leave*> getPendingLeaves() const;
+    vector<Leave*> getApprovedLeaves() const;
+    vector<Leave*> getLeavesByEmpId(const string& empId) const;
+    bool isExceedingThreshold(const string& empId, const string& leaveType) const;
+    void processLeave(Leave* leave);
 };
 
 #endif

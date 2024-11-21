@@ -5,9 +5,9 @@
 
 class UnpaidLeave : public Leave {
 public:
-    UnpaidLeave(const string& empId, const string& startDate, const string& endDate,
-        const string& address, const string& reason, const string& appDate, const string& status)
-        : Leave(empId, "Unpaid", startDate, endDate, address, reason, appDate) {}
+    UnpaidLeave(Employee *emp, string &empId, const string &startDate, const string &endDate,
+                const string &address, const string &reason, const string &appDate, const string &status)
+        : Leave(emp, empId, "Unpaid", startDate, endDate, address, reason, appDate, status) {}
 
         int calculateLeaveDays() const override;
 
@@ -15,7 +15,10 @@ public:
         return "Official";
     }
 
-    void processLeave() override;
+       void processLeave() override;
+
+    bool requiresupervisorpermission() const  override;
+    bool requiredirectorpermission() const override;
     
 };
 

@@ -2,6 +2,7 @@
 #define EMPLOYEE_HPP
 
 #include <string>
+#include "Attendance.h"
 using namespace std;
 
 class Employee {
@@ -27,6 +28,7 @@ public:
 
     bool deductLeave(const string& leaveType, int days); 
     void resetLeaveBalance(const string& leaveType, int newBalance); 
+    bool cantakeleave(const string& leaveType , int days);
 };
 
 #endif

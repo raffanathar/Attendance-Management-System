@@ -78,3 +78,17 @@ void Employee::resetLeaveBalance(const string &leaveType, int newBalance)
         unpaidLeaveBalance = 0;
     }
 }
+
+bool Employee::cantakeleave(const string &leaveType, int days)
+{
+    if (leaveType == "Casual") {
+        return casualLeaveBalance >= days;
+    } else if (leaveType == "Earned") {
+        return earnedLeaveBalance >= days;
+    } else if (leaveType == "Official") {
+        return officialLeaveBalance >= days;
+    } else if (leaveType == "Unpaid") {
+        return unpaidLeaveBalance >= days;
+    }
+    return false;
+}

@@ -22,10 +22,16 @@ public:
     virtual int calculateLeaveDays() const = 0; 
 
     string getstatus() const { return status; }
+    string getempId() const { return empId; }
+    
+
     void setStatus(const string& status) { this->status = status; }
 
     virtual string gettype() const = 0;
     virtual void processLeave() = 0;
+
+    virtual bool requiresupervisorpermission() const = 0;
+    virtual bool requiredirectorpermission() const = 0;
 
 };
 

@@ -5,7 +5,7 @@
 
 class Director {
 public:
-    void approveLeave(LeaveManager& leaveManager, const std::string& empId, const std::string& leaveType);
+    void approveLeave(LeaveManager& leaveManager, const string& empId, const string& leaveType);
 };
 
 #endif

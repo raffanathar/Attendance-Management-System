@@ -20,17 +20,17 @@ int getDaysInMonth(int month, int year)
 {
     // Days in each month for a non-leap year
     vector<int> daysInMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    
+
     // Adjust February days if it's a leap year
     if (month == 2 && isLeapYear(year))
         return 29;
-    
+
     return daysInMonth[month - 1];
 }
 int calculateDaysSince1900(int year, int month, int day)
 {
     int totalDays = 0;
-    
+
     // Add days for each year from 1900 to the previous year
     for (int y = 1900; y < year; ++y)
     {
@@ -69,9 +69,11 @@ int EarnedLeave::calculateLeaveDays() const
     return diffDays;
 }
 
-void EarnedLeave::processLeave() {
-    if (!employee) {
-        std::cerr << "Error: Employee is null for leave processing." << std::endl;
+void EarnedLeave::processLeave()
+{
+    if (!employee)
+    {
+        cerr << "Error: Employee is null for leave processing." << endl;
         setStatus("Rejected");
         return;
     }
@@ -80,23 +82,27 @@ void EarnedLeave::processLeave() {
     int leaveDays = calculateLeaveDays();
 
     // Check if the employee has enough earned leave balance
-    if (employee->getEarnedLeaveBalance() >= leaveDays) {
+    if (employee->getEarnedLeaveBalance() >= leaveDays)
+    {
         // Deduct the leave balance and approve the leave
-        if (employee->deductLeave("Earned", leaveDays)) {
-            setStatus("Approved");
-            std::cout << "Leave approved for employee ID: " << empId << std::endl;
-        } else {
-            setStatus("Rejected");
-            std::cerr << "Error: Unable to deduct leave balance." << std::endl;
+        if (employee->deductLeave("Earned", leaveDays))
+        {
+            setStatus("Pending");
+            cout << "Leave marked as Pending for employee ID: " << empId << endl;
         }
-    } else {
+        else
+        {
+            setStatus("Rejected");
+            cerr << "Error: Unable to deduct leave balance." << endl;
+        }
+    }
+    else
+    {
         // If not enough leave balance, reject the leave
         setStatus("Rejected");
-        std::cerr << "Insufficient earned leave balance for employee ID: " << empId << std::endl;
+        cerr << "Insufficient earned leave balance for employee ID: " << empId << endl;
     }
 }
-
-
 
 bool EarnedLeave::requiresupervisorpermission() const
 {

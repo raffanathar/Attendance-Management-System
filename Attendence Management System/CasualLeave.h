@@ -17,7 +17,7 @@ public:
         return "Casual";
     }
 
-     void processLeave() override;
+    void processLeave() override;
 
     bool requiresupervisorpermission() const override;
     bool requiredirectorpermission() const override;

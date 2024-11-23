@@ -19,7 +19,7 @@ public:
 
     void processLeave() override;
 
-    bool requiresupervisorpermission() const  override;
+    bool requiresupervisorpermission() const override;
     bool requiredirectorpermission() const override;
 };
 

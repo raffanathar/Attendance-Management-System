@@ -36,12 +36,11 @@ public:
     void setStatus(const string &status) { this->status = status; }
 
     virtual string gettype() const = 0;
-     virtual void processLeave() = 0;
+    virtual void processLeave() = 0;
 
     virtual bool requiresupervisorpermission() const = 0;
     virtual bool requiredirectorpermission() const = 0;
-        virtual ~Leave() = default;
-
+    virtual ~Leave() = default;
 };
 
 #endif

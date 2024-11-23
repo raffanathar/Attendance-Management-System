@@ -42,23 +42,34 @@ int Employee::getUnpaidLeaveBalance() const
 
 bool Employee::deductLeave(const string &leaveType, int days)
 {
-    if (leaveType == "Casual") {
-        if (casualLeaveBalance >= days) {
+    if (leaveType == "Casual")
+    {
+        if (casualLeaveBalance >= days)
+        {
             casualLeaveBalance -= days;
             return true;
         }
-    } else if (leaveType == "Earned") {
-        if (earnedLeaveBalance >= days) {
+    }
+    else if (leaveType == "Earned")
+    {
+        if (earnedLeaveBalance >= days)
+        {
             earnedLeaveBalance -= days;
             return true;
         }
-    } else if (leaveType == "Official") {
-        if (officialLeaveBalance >= days) {
+    }
+    else if (leaveType == "Official")
+    {
+        if (officialLeaveBalance >= days)
+        {
             officialLeaveBalance -= days;
             return true;
         }
-    } else if (leaveType == "Unpaid") {
-        if (unpaidLeaveBalance >= days) {
+    }
+    else if (leaveType == "Unpaid")
+    {
+        if (unpaidLeaveBalance >= days)
+        {
             unpaidLeaveBalance -= days;
             return true;
         }
@@ -68,26 +79,40 @@ bool Employee::deductLeave(const string &leaveType, int days)
 
 void Employee::resetLeaveBalance(const string &leaveType, int newBalance)
 {
-    if (leaveType == "Casual") {
+    if (leaveType == "Casual")
+    {
         casualLeaveBalance = 15;
-    } else if (leaveType == "Earned") {
+    }
+    else if (leaveType == "Earned")
+    {
         earnedLeaveBalance = 21;
-    } else if (leaveType == "Official") {
+    }
+    else if (leaveType == "Official")
+    {
         officialLeaveBalance = 0;
-    } else if (leaveType == "Unpaid") {
+    }
+    else if (leaveType == "Unpaid")
+    {
         unpaidLeaveBalance = 0;
     }
 }
 
 bool Employee::cantakeleave(const string &leaveType, int days)
 {
-    if (leaveType == "Casual") {
+    if (leaveType == "Casual")
+    {
         return casualLeaveBalance >= days;
-    } else if (leaveType == "Earned") {
+    }
+    else if (leaveType == "Earned")
+    {
         return earnedLeaveBalance >= days;
-    } else if (leaveType == "Official") {
+    }
+    else if (leaveType == "Official")
+    {
         return officialLeaveBalance >= days;
-    } else if (leaveType == "Unpaid") {
+    }
+    else if (leaveType == "Unpaid")
+    {
         return unpaidLeaveBalance >= days;
     }
     return false;

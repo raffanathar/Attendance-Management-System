@@ -19,17 +19,17 @@ int getDaysInMonth(int month, int year)
 {
     // Days in each month for a non-leap year
     vector<int> daysInMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    
+
     // Adjust February days if it's a leap year
     if (month == 2 && isLeapYear(year))
         return 29;
-    
+
     return daysInMonth[month - 1];
 }
 int calculateDaysSince1900(int year, int month, int day)
 {
     int totalDays = 0;
-    
+
     // Add days for each year from 1900 to the previous year
     for (int y = 1900; y < year; ++y)
     {
@@ -50,7 +50,7 @@ int calculateDaysSince1900(int year, int month, int day)
 
 int UnpaidLeave::calculateLeaveDays() const
 {
-        // Parse the start and end date into year, month, day
+    // Parse the start and end date into year, month, day
     int startYear, startMonth, startDay;
     int endYear, endMonth, endDay;
 
@@ -71,8 +71,9 @@ int UnpaidLeave::calculateLeaveDays() const
 
 void UnpaidLeave::processLeave()
 {
-        if (!employee) {
-        std::cerr << "Error: Employee is null for leave processing." << std::endl;
+    if (!employee)
+    {
+        cerr << "Error: Employee is null for leave processing." << endl;
         setStatus("Rejected");
         return;
     }
@@ -81,19 +82,25 @@ void UnpaidLeave::processLeave()
     int leaveDays = calculateLeaveDays();
 
     // Check if the employee has enough unpaid leave balance
-    if (employee->getUnpaidLeaveBalance() >= leaveDays) {
+    if (employee->getUnpaidLeaveBalance() >= leaveDays)
+    {
         // Deduct the leave balance and approve the leave
-        if (employee->deductLeave("Unpaid", leaveDays)) {
-            setStatus("Approved");
-            std::cout << "Leave approved for employee ID: " << empId << std::endl;
-        } else {
-            setStatus("Rejected");
-            std::cerr << "Error: Unable to deduct leave balance." << std::endl;
+        if (employee->deductLeave("Unpaid", leaveDays))
+        {
+            setStatus("Pending");
+            cout << "Leave marked as Pending for employee ID: " << empId << endl;
         }
-    } else {
+        else
+        {
+            setStatus("Rejected");
+            cerr << "Error: Unable to deduct leave balance." << endl;
+        }
+    }
+    else
+    {
         // If not enough leave balance, reject the leave
         setStatus("Rejected");
-        std::cerr << "Insufficient earned leave balance for employee ID: " << empId << std::endl;
+        cerr << "Insufficient earned leave balance for employee ID: " << empId << endl;
     }
 }
 

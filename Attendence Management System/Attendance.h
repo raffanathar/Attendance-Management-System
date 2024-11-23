@@ -2,6 +2,7 @@
 #define ATTENDANCE_HPP
 
 #include <string>
+#include "AttenanceManager.h"
 
 using namespace std;
 
@@ -12,18 +13,19 @@ private:
     string checkInTime;  // Time format: "HH:MM"
     string checkOutTime; // Time format: "HH:MM"
     double hoursWorked;  // Hours worked on the given date
-
+    AttendanceManager &attendance;
 public:
     // Constructors
     Attendance(); // Default constructor
-    Attendance(const string& empId, const string& date, const string& checkIn, const string& checkOut);
+    Attendance(const string &empId, const string &date, const string &checkIn, const string &checkOut);
 
     // Getters
-    string getEmployeeId() ;
+    string getEmployeeId()  ;
     string getDate() ;
     string getCheckInTime() ;
     string getCheckOutTime();
     int getHoursWorked();
+    AttendanceManager getAttendanceManager() const;
 
     // Setters
     void setCheckInTime(const string& checkIn);

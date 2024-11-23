@@ -9,7 +9,7 @@
 class Reporting {
 public:
     // Generate attendance report
-    void generateAttendanceReport(const vector<Employee>& employees, double threshold) const;
+    void generateAttendanceReport(const vector<Attendance*> &attendanceRecords) const;
 
     // Generate leave report
     void generateLeaveReport(const vector<Leave*>& leaveRecords) const;

@@ -2,7 +2,9 @@
 #define EMPLOYEE_HPP
 
 #include <string>
+#include<vector>
 #include "Attendance.h"
+#include "Leave.h"
 using namespace std;
 
 class Employee {
@@ -13,8 +15,7 @@ private:
     int earnedLeaveBalance;
     int officialLeaveBalance;
     int unpaidLeaveBalance;
-    Attendance *attendance;
-
+  
 public:
     Employee(string id, string name);
 

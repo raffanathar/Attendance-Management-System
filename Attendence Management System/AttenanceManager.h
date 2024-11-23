@@ -13,7 +13,6 @@ public:
     // Mark attendance (check-in and check-out)
     void markCheckIn(const string& empId, const string& date, const string& checkInTime);
     void markCheckOut(const string& empId, const string& date, const string& checkOutTime);
-
     // Generate attendance report
     vector<string> generateAttendanceReport(double threshold);
 
@@ -21,7 +20,7 @@ public:
     vector<Attendance> getAttendanceDetails(const string& empId);
 
     // Helper to calculate total weekly hours for an employee
-    double calculateTotalWeeklyHours(const string& empId);
+    double calculateTotalWeeklyHours(string& empId);
 };
 
 #endif

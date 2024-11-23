@@ -29,6 +29,10 @@ public:
     string getstatus() const { return status; }
     string getempId() const { return empId; }
 
+    string getstartDate() const { return startDate; }
+    string getendDate() const { return endDate; }
+    string getReason() const { return reason; }
+
     void setStatus(const string &status) { this->status = status; }
 
     virtual string gettype() const = 0;

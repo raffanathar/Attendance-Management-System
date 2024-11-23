@@ -7,9 +7,8 @@ class OfficialLeave : public Leave
 {
 public:
     OfficialLeave(Employee *emp, string &empId, const string &startDate, const string &endDate,
-                const string &address, const string &reason, const string &appDate, const string &status)
+                  const string &address, const string &reason, const string &appDate, const string &status)
         : Leave(emp, empId, "Official", startDate, endDate, address, reason, appDate, status) {}
-
 
     int calculateLeaveDays() const override;
 

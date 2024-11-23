@@ -6,17 +6,18 @@
 #include "Leave.h"
 #include "AttenanceManager.h"
 
-class Reporting {
+class Reporting
+{
 public:
     // Generate attendance report
-    void generateAttendanceReport(const vector<Employee>& employees, double threshold) const;
+    void generateAttendanceReport(const vector<Employee> &employees, double threshold) const;
 
     // Generate leave report
-    void generateLeaveReport(const vector<Leave*>& leaveRecords) const;
+    void generateLeaveReport(const vector<Leave *> &leaveRecords) const;
 
     // Generate detailed report for an employee
-    void generateEmployeeReport(const Employee& employee, const vector<Attendance>& attendanceRecords,
-                                const vector<Leave*>& leaveRecords) const;
+    void generateEmployeeReport(const Employee &employee, const vector<Attendance> &attendanceRecords,
+                                const vector<Leave *> &leaveRecords) const;
 };
 
 #endif
